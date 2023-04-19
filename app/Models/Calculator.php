@@ -2,18 +2,24 @@
 
 namespace App\Models;
 
-abstract class Calculator
+class Calculator
 {
     protected $numbers;
 
     public function __construct($numbers)
     {
-        $this->numbers = $numbers;
+        $this->numbers = $this->convert($numbers);
+    }
+
+    private function convert($numbers)
+    {
+        $stringArray = explode(',', $numbers);
+        return array_map('intval', $stringArray);
     }
 
     public function add()
     {
-        return $this->numbers;
+        return array_sum($this->numbers);
     }
 
 }
