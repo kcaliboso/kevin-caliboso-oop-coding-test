@@ -7,7 +7,7 @@ use App\Models\Calculator\Contracts\CalculatorInterface;
 
 class CalculatorService implements CalculatorInterface
 {
-    public function add(...$numbers)
+    public function add($numbers)
     {
         $calc = new Calculator($numbers);
         return $calc->add();
