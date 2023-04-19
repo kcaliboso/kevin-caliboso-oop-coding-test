@@ -16,6 +16,14 @@ class CalculatorController extends Controller
 
     public function add(Request $request)
     {
-        return $request;
+        try {
+            return response([
+                "message" => "Addition of Numbers",
+                "operands" => $request->get('operands'),
+                "result" => $this->calculatorService->add($request->get('operands')),
+            ], 200);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }
