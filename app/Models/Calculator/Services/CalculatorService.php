@@ -13,17 +13,18 @@ class CalculatorService implements CalculatorInterface
         return $calc->add();
     }
 
-    public function subtract(...$numbers)
+    public function subtract($numbers)
+    {
+        $calc = new Calculator($numbers);
+        return $calc->subtract();
+    }
+
+    public function multiply($numbers)
     {
         return $numbers;
     }
 
-    public function multiply(...$numbers)
-    {
-        return $numbers;
-    }
-
-    public function divide(...$numbers)
+    public function divide($numbers)
     {
         return $numbers;
     }
