@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalculatorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Only used with authentications and bearer tokens.
+ */
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('guest')->group(function ()
+{
+    Route::controller(CalculatorController::class)->group(function () {
+        Route::post('/add', 'add');
+    });
 });
