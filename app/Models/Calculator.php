@@ -30,4 +30,18 @@ class Calculator
         return $result;
     }
 
+    public function multiply()
+    {
+        return array_product($this->numbers);
+    }
+
+    public function divide()
+    {
+        $result = $this->numbers[0];
+        for ($i = 1; $i < count($this->numbers); $i++) {
+            $result /= $this->numbers[$i];
+        }
+        return $result;
+    }
+
 }
