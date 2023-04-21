@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CalculatorRequest;
 use App\Models\Calculator\Services\CalculatorService;
-use Illuminate\Http\Request;
 
 class CalculatorController extends Controller
 {
@@ -20,20 +20,21 @@ class CalculatorController extends Controller
         $this->calculatorService = $calculatorService;
     }
 
-    public function add(Request $request)
+    public function add(CalculatorRequest $request)
     {
         try {
+            $operands = $request->get('operands');
             return response([
                 "message" => "Addition of Numbers",
-                "operands" => $request->get('operands'),
-                "result" => $this->calculatorService->add($request->get('operands')),
+                "operands" => $operands,
+                "result" => $this->calculatorService->add($operands),
             ], 200);
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
     }
 
-    public function subtract(Request $request)
+    public function subtract(CalculatorRequest $request)
     {
         try {
             return response([
@@ -42,7 +43,33 @@ class CalculatorController extends Controller
                 "result" => $this->calculatorService->subtract($request->get('operands')),
             ], 200);
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
+        }
+    }
+
+    public function multiply(CalculatorRequest $request)
+    {
+        try {
+            return response([
+                "message" => "Multiplication of Numbers",
+                "operands" => $request->get('operands'),
+                "result" => $this->calculatorService->multiply($request->get('operands')),
+            ], 200);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function divide(CalculatorRequest $request)
+    {
+        try {
+            return response([
+                "message" => "Division of Numbers",
+                "operands" => $request->get('operands'),
+                "result" => $this->calculatorService->divide($request->get('operands')),
+            ], 200);
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }
