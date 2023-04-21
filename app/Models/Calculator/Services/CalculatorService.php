@@ -21,11 +21,13 @@ class CalculatorService implements CalculatorInterface
 
     public function multiply($numbers)
     {
-        return $numbers;
+        $calc = new Calculator($numbers);
+        return $calc->multiply();
     }
 
     public function divide($numbers)
     {
-        return $numbers;
+        $calc = new Calculator($numbers);
+        return $calc->divide();
     }
 }
