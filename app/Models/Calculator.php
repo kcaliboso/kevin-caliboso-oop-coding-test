@@ -13,8 +13,7 @@ class Calculator
 
     private function convert($numbers)
     {
-        $stringArray = explode(',', $numbers);
-        return array_map('floatval', $stringArray);
+        return array_map('floatval', $numbers);
     }
 
     public function add()
