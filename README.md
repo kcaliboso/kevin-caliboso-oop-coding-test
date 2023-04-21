@@ -17,6 +17,18 @@ We need Docker Desktop installed to our machine to be able to run this code via 
 ```
 Just make sure that Docker Desktop is running, after pulling this repository run the above mentioned command in the project root.
 
+## API Routes
+For the calculator routes, I did not secure the routes anymore since it's a simple calculator function. Here are the routes for the project :
+- **/api/add**
+- **/api/subtract**
+- **/api/multiply**
+- **/api/divide**
+
+We can also check these routes using **artisan** command.
+
+## Inputs
+The API routes accept a string field 'operands' with a value of numeric string separated by comma. White spaces and trailing commas as removed via Validator then later converted into an array. Input is also checked if it is an array and all the array elements are numeric.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
