@@ -27,5 +27,7 @@ Route::middleware('guest')->group(function ()
     Route::controller(CalculatorController::class)->group(function () {
         Route::post('/add', 'add');
         Route::post('/subtract', 'subtract');
+        Route::post('/multiply', 'multiply');
+        Route::post('/divide', 'divide');
     });
 });
